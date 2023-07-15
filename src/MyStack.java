@@ -1,35 +1,3 @@
-class MyStackTest {
-    public static void main(String[] args) {
-        MyStack<Integer> myStack = new MyStack<>();
-        myStack.push(1);
-        myStack.push(2);
-        myStack.push(3);
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("----------");
-        myStack.push(3);
-        myStack.push(2);
-        myStack.push(1);
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-        System.out.println("myStack.pop() = " + myStack.pop());
-        System.out.println("myStack.peek() = " + myStack.peek());
-    }
-}
-
-
 class MyStack<T> {
     private int size = 0;
     private Node<T> firstNode = null;
