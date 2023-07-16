@@ -1,7 +1,5 @@
 import java.util.Arrays;
-
-
-class MyArrayList {
+class MyArrayList<T> {
 
     private static final int DEFAULT_ARRAY_CAPACITY = 10;
     private int size = 0;
@@ -9,7 +7,7 @@ class MyArrayList {
 
     public void add(Object value){
         resize();
-        values[size] = value;
+        values[size] = (T) value;
         size++;
     };
     private void resize(){
@@ -43,8 +41,8 @@ class MyArrayList {
         return size;
     }
 
-    public Object get(int index){
-        return values[index];
+    public T get(int index){
+        return (T) values[index];
     }
 }
 

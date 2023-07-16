@@ -1,6 +1,3 @@
-import java.util.LinkedList;
-
-
 class MyLinkedList<T> {
     private int size = 0;
     private Node<T> firstNode = null;
