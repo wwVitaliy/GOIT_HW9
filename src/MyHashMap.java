@@ -11,9 +11,7 @@ class MyHashMap<K, V> {
     }
     private void createBuckets(){
         for (int i = 0; i < bucketQty; i++) {
-            if (bucketArray[i] == null){
                 bucketArray[i] = new HashMapLinkedList();
-            }
         }
     }
     private int getBucketNumber(Object key){
