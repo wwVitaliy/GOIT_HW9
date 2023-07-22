@@ -1,48 +1,61 @@
 import java.util.Arrays;
+
 class MyArrayList<T> {
 
     private static final int DEFAULT_ARRAY_CAPACITY = 10;
-    private int size = 0;
     private Object[] values = new Object[DEFAULT_ARRAY_CAPACITY];
+    private int size = 0;
 
-    public void add(Object value){
+    public void add(Object value) {
         resize();
         values[size] = (T) value;
         size++;
-    };
-    private void resize(){
-        if (values.length == size){
+    }
+
+    public void remove(int index) {
+        if (size == 0) {
+            return;
+        } else if (size == 1) {
+            clear();
+        } else {
+            for (int i = index; i < size - 1; i++) {
+                values[i] = values[i + 1];
+            }
+            values[size - 1] = null;
+            size--;
+            resize();
+        }
+    }
+
+    private void resize() {
+        if (values.length == size) {
             values = Arrays.copyOf(values, values.length + 5);
         }
-        if (values.length - size > 5){
+        if (values.length - size > 5) {
             values = Arrays.copyOf(values, values.length - 5);
         }
     }
-    public void remove(int index){
-        if (size == 0 ){
-            return;
-        }
-        for (int i = index; i < size; i++) {
-            values[i] = values[i+1];
-        }
-        values[size] = null;
-        size--;
-        resize();
-    };
-    public void clear(){
-        for (int i = 0 ; i < size;i++){
-            values[i] = null;
-        }
+
+    public void clear() {
+        values = new Object[DEFAULT_ARRAY_CAPACITY];
         size = 0;
-        Arrays.copyOf(values, DEFAULT_ARRAY_CAPACITY);
+
     }
-    public int size(){
-        System.out.println(values.length);
+
+    public int size() {
         return size;
     }
 
-    public T get(int index){
+    public T get(int index) {
         return (T) values[index];
+    }
+
+    @Override
+    public String toString() {
+        for (int i = 0; i < values.length; i++) {
+            System.out.println("values[i] = " + values[i]);
+        }
+        return "";
     }
 }
 

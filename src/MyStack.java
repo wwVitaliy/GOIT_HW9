@@ -17,24 +17,24 @@ class MyStack<T> {
     }
 
     public void remove(int index) {
-        if (index > size || index < 1) {
+        if (index >= size || index < 0) {
             return;
         }
-        if (index == 1) {
+        if (index == 0) {
             firstNode = firstNode.getNextNode();
             firstNode.setPrevNode(null);
-        } else if (index == size) {
+        } else if (index == size-1) {
             lastNode = lastNode.getPrevNode();
             lastNode.setNextNode(null);
         } else {
             Node<T> nodeToRemove = firstNode.getNextNode();
-            for (int i = 2; i < index; i++) {
+            for (int i = 1; i < index; i++) {
                 nodeToRemove = nodeToRemove.getNextNode();
             }
             nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
             nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
-            size--;
         }
+        size--;
 
 
     }
@@ -60,7 +60,7 @@ class MyStack<T> {
     }
 
     public T pop() {
-        T result = null;
+        T result;
         if (size == 0) {
             return null;
         } else if (size == 1) {

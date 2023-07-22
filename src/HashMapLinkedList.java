@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 class HashMapLinkedList<K, V> {
 
     private int size = 0;
@@ -7,6 +9,7 @@ class HashMapLinkedList<K, V> {
     public HashMapNode<K, V> getFirstNode() {
         return firstNode;
     }
+
     public HashMapNode<K, V> getLastNode() {
         return lastNode;
     }
@@ -14,6 +17,7 @@ class HashMapLinkedList<K, V> {
     public int size() {
         return size;
     }
+
     private void addToTheEnd(K key, V value) {
         if (firstNode == null) {
             firstNode = new HashMapNode<>(key, value, null);
@@ -27,11 +31,12 @@ class HashMapLinkedList<K, V> {
         size++;
 
     }
-    public void add(K key, V value){
+
+    public void add(K key, V value) {
         boolean hasKey = false;
         HashMapNode<K, V> node = firstNode;
         for (int i = 0; i < size; i++) {
-            if (node.getKey().equals(key)){
+            if (node.getKey().equals(key)) {
                 node.setValue(value);
                 hasKey = true;
                 break;
@@ -39,14 +44,14 @@ class HashMapLinkedList<K, V> {
             node = node.getNextNode();
 
         }
-        if (!hasKey){
+        if (!hasKey) {
             addToTheEnd(key, value);
         }
 
     }
+
     public void remove(K key) {
         if (size == 0) {
-            System.out.println("Bucket is empty");
             return;
         }
         if (firstNode.getKey().equals(key)) {
@@ -63,19 +68,21 @@ class HashMapLinkedList<K, V> {
                 node = node.getNextNode();
             }
         }
-        if (size <= 1){
+        if (size <= 1) {
             lastNode = null;
         }
     }
+
     public void clear() {
         firstNode = null;
         lastNode = null;
         size = 0;
     }
-    public V get(K key){
+
+    public V get(K key) {
         HashMapNode<K, V> node = firstNode;
         for (int i = 0; i < size; i++) {
-            if (node.getKey().equals(key)){
+            if (node.getKey().equals(key)) {
                 return node.getValue();
             }
             node = node.getNextNode();
@@ -83,6 +90,7 @@ class HashMapLinkedList<K, V> {
         }
         return null;
     }
+
     @Override
     public String toString() {
         String result = "";

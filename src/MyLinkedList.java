@@ -11,11 +11,7 @@ class MyLinkedList<T> {
         return lastNode;
     }
 
-    public int Size() {
-        return size;
-    }
-
-    public void add (Object value) {
+    public void add(Object value) {
         if (firstNode == null) {
             firstNode = new Node<T>((T) value, null, null);
         } else if (lastNode == null) {
@@ -28,48 +24,51 @@ class MyLinkedList<T> {
         size++;
     }
 
-    public void remove(int index){
-        if (index > size || index < 1 ){
+    public void remove(int index) {
+        if (index >= size || index < 0) {
             return;
         }
-        if (index == 1){
+        if (index == 0) {
             firstNode = firstNode.getNextNode();
             firstNode.setPrevNode(null);
-        }else if(index == size) {
+        } else if (index == size-1) {
             lastNode = lastNode.getPrevNode();
             lastNode.setNextNode(null);
-        }else{
+        } else {
             Node<T> nodeToRemove = firstNode.getNextNode();
-            for (int i = 2; i < index; i++) {
+            for (int i = 1; i < index; i++) {
                 nodeToRemove = nodeToRemove.getNextNode();
             }
             nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
             nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
-            size--;
         }
+        size--;
 
 
     }
-    public void clear(){
+
+    public void clear() {
         firstNode = null;
         lastNode = null;
         size = 0;
     }
-    public int size(){
+
+    public int size() {
         return size;
     }
-    public T get(int index){
-        if (index > size || index < 1 ){
-             return null;
+
+    public T get(int index) {
+        if (index >= size || index < 0) {
+            return null;
         }
-        if (index == 1){
+        if (index == 0) {
             return firstNode.getValue();
-        }else if (index == size){
+        } else if (index == size-1) {
             return lastNode.getValue();
-        }else{
+        } else {
             Node<T> neededNode = firstNode.getNextNode();
-            for (int i = 2; i < index; i++) {
-                 neededNode = neededNode.getNextNode();
+            for (int i = 1; i < index; i++) {
+                neededNode = neededNode.getNextNode();
             }
             return neededNode.getValue();
         }
