@@ -5,9 +5,9 @@ class MyStack<T> {
 
     public void push(Object value) {
         if (firstNode == null) {
-            firstNode = new Node<T>((T) value, null, null);
+            firstNode = new Node<>((T) value, null, null);
         } else if (lastNode == null) {
-            lastNode = new Node<T>((T) value, firstNode, null);
+            lastNode = new Node<>((T) value, firstNode, null);
             firstNode.setNextNode(lastNode);
         } else {
             lastNode.setNextNode(new Node<>((T) value, lastNode, null));

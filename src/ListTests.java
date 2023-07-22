@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class ListTests {
     public static void main(String[] args) {
 
@@ -10,7 +8,7 @@ public class ListTests {
 //        myHashMapTest();
     }
 
-    private static int n = 1000000;    // Number of elements in Collection
+    private static final int N = 1000000;    // Number of elements in Collection
 
     public static void myArrayListTest() {
         System.out.println("-------------------------------------- MyArrayList test");
@@ -18,7 +16,7 @@ public class ListTests {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
 
         // Test myArraylist.add() method
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             myArrayList.add(i);
         }
         System.out.println("myArrayList.size() = " + myArrayList.size());
@@ -42,7 +40,7 @@ public class ListTests {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
 
         // Test myLinkedList.add() method
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             myLinkedList.add(i);
         }
         System.out.println("myLinkedList.size() = " + myLinkedList.size());
@@ -66,7 +64,7 @@ public class ListTests {
         MyQueue<Integer> myQueue = new MyQueue<>();
 
         // Test myQueue.add() method
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             myQueue.add(i);
         }
         System.out.println("myQueue.size() = " + myQueue.size());
@@ -90,7 +88,7 @@ public class ListTests {
         MyStack<Integer> myStack = new MyStack<>();
 
         // Test myStack.add() method
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             myStack.push(i);
         }
         System.out.println("myStack.size() = " + myStack.size());
@@ -120,7 +118,7 @@ public class ListTests {
         MyHashMap<Integer, Integer> myHashMap = new MyHashMap<>();
 
         // Test myHashMap.put() method
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             myHashMap.put(i, i * 10);
         }
         System.out.println("myHashMap.size() = " + myHashMap.size());

@@ -6,9 +6,9 @@ class MyArrayList<T> {
     private Object[] values = new Object[DEFAULT_ARRAY_CAPACITY];
     private int size = 0;
 
-    public void add(Object value) {
+    public void add(T value) {
         resize();
-        values[size] = (T) value;
+        values[size] = value;
         size++;
     }
 
@@ -29,10 +29,7 @@ class MyArrayList<T> {
 
     private void resize() {
         if (values.length == size) {
-            values = Arrays.copyOf(values, values.length + 5);
-        }
-        if (values.length - size > 5) {
-            values = Arrays.copyOf(values, values.length - 5);
+            values = Arrays.copyOf(values, values.length * 2);
         }
     }
 

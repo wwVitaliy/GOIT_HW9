@@ -1,9 +1,9 @@
 class Node<T> {
     private T value;
-    private Node<T> prevNode = null;
-    private Node<T> nextNode = null;
+    private Node<T> prevNode;
+    private Node<T> nextNode;
 
-    public Node(T value, Node prevNode, Node nextNode) {
+    public Node(T value, Node<T> prevNode, Node<T> nextNode) {
         this.value = value;
         this.prevNode = prevNode;
         this.nextNode = nextNode;

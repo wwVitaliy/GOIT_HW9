@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 class HashMapLinkedList<K, V> {
 
     private int size = 0;

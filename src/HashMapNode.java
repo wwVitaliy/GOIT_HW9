@@ -1,12 +1,10 @@
-import java.util.Objects;
-
 public class HashMapNode<K, V> {
 
     private K key;
     private V value;
-    private HashMapNode nextNode;
+    private HashMapNode<K, V> nextNode;
 
-    public HashMapNode(K key, V value, HashMapNode nextNode) {
+    public HashMapNode(K key, V value, HashMapNode<K, V> nextNode) {
         this.key = key;
         this.value = value;
         this.nextNode = nextNode;
@@ -28,11 +26,11 @@ public class HashMapNode<K, V> {
         this.value = value;
     }
 
-    public HashMapNode getNextNode() {
+    public HashMapNode<K, V> getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(HashMapNode nextNode) {
+    public void setNextNode(HashMapNode<K, V> nextNode) {
         this.nextNode = nextNode;
     }
 

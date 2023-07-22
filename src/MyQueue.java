@@ -5,12 +5,12 @@ class MyQueue<T> {
 
     public void add(Object value) {
         if (firstNode == null) {
-            firstNode = new Node<T>((T) value, null, null);
+            firstNode = new Node<>((T) value, null, null);
         } else if (lastNode == null) {
             lastNode = new Node<>((T) value, firstNode, null);
             firstNode.setNextNode(lastNode);
         } else {
-            lastNode.setNextNode(new Node<T>((T) value, lastNode, null));
+            lastNode.setNextNode(new Node<>((T) value, lastNode, null));
             lastNode = lastNode.getNextNode();
         }
         size++;
